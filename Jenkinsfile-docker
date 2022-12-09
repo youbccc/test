@@ -24,7 +24,7 @@ pipeline {
         sh 'mvn test'
       }
     }
-    stage('Build Docker Image') {            # build 할 이미지에 대한 명령어
+    stage('Build Docker Image') {
       agent any
       steps {
         sh 'docker image build -t youbccc/hello:latest .'
@@ -33,7 +33,7 @@ pipeline {
     stage('Tag Docker Image') {
       agent any
       steps {
-        sh 'docker image tag youbccc/hello:$BUILD_NUMBER'
+        sh 'docker image tag youbccc/hello:latest youbcc/hello:$BUILD_NUMBER'
       }
     }
     stage('Publish Docker Image') {
