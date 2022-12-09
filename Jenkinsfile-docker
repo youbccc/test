@@ -50,7 +50,7 @@ pipeline {
         docker { image 'docker:dind' }
       }
       steps {
-        sh 'docker -H tcp://192.168.56.110:2375 container run --detach --name webserver -p 80:8080 youbccc/hello:$BUILD_NUMBER'
+        sh 'docker -H tcp://192.168.56.110:2375 container run --detach --name webserver -p 80:8080 youbc/hello:$BUILD_NUMBER'
       }
     }
   }
